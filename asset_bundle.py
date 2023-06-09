@@ -47,7 +47,7 @@ def __get_cn_text_asset_bundle_container_name(file_path) -> Optional[str]:
 def __get_md_traversal_path(md_path: str) -> str:
     if not md_path.endswith(MD_EXE_FILE_NAME):
         raise RuntimeError("invalid md path")
-    md_local_data_path = os.path.join(md_path, MD_LOCAL_DATA_RELATIVE_PATH)
+    md_local_data_path = os.path.join(os.path.dirname(md_path), MD_LOCAL_DATA_RELATIVE_PATH)
     if not os.path.exists(md_local_data_path):
         raise RuntimeError("LocalData not exists")
     account_folders = os.listdir(md_local_data_path)

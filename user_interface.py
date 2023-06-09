@@ -36,7 +36,7 @@ def init(page: Page):
         nonlocal md_path
         if e.files:
             if e.files[0].name == "masterduel.exe":
-                md_path = os.path.dirname(e.files[0].path)
+                md_path = e.files[0].path
             else:
                 md_path = None
         else:
