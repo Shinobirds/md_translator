@@ -31,9 +31,14 @@ def translate_by_archived_cards(card: md_card.Card, archived_card_list: list[arc
         if c.md_name == card.md_name and c.md_desc == card.md_desc:
             if c.translate_name != "":
                 card.translate_name = c.translate_name
+            else:
+                card.translate_name = c.md_name
+            if c.translate_desc != "":
                 card.translate_desc = c.translate_desc
-                card.translate_pdesc = c.translate_pdesc
-                return TranslateResult.SUCCESS
+            else:
+                card.translate_desc = c.md_desc
+            card.translate_pdesc = c.translate_pdesc
+            return TranslateResult.SUCCESS
 
     return TranslateResult.MISMATCHED
 
